@@ -56,8 +56,34 @@ public class Main {
                     System.out.println("Minimum: " + ArrayUtils.findMin(arr));
                     break;
                 }
+                    case "4": { 
+                    if (!ensureArrayReady()) break;
+                    System.out.println("Maximum: " + ArrayUtils.findMax(arr));
+                    break;
+                }
+                case "5": { 
+                    if (!ensureArrayReady()) break;
+                    double avg = ArrayUtils.average(arr);
+                    double[] diffs = ArrayUtils.differencesFromAverage(arr);
+                    System.out.println("Average: " + avg);
+                    System.out.println("Differences from average: " + Arrays.toString(diffs));
+                    break;
+                }
+                case "6": { 
+                    if (!ensureArrayReady()) break;
+                    int evenSum = ArrayUtils.sumEvenIndex(arr); 
+                    int  oddSum  = ArrayUtils.sumOddIndex(arr);  
+                    System.out.println("Sum of even indexes: " + evenSum);
+                    System.out.println("Sum of odd indexes:  " + oddSum);
+                    break;
+                }
+                case "0":
+                    System.out.println("Goodbye!");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
             }
         }
-
     }
-}
