@@ -24,3 +24,40 @@ public class Main {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        while (true) {
+            printMenu();
+            String choice = SC.nextLine().trim();
+
+            switch (choice) {
+                case "1": {
+                    System.out.print("Enter array size (>0): ");
+                    try {
+                        int n = Integer.parseInt(SC.nextLine().trim());
+                        if (n <= 0) {
+                            System.out.println("Size must be greater than 0.");
+                            break;
+                        }
+                        arr = ArrayUtils.createRandomArray(n);
+                        System.out.println("Array created.");
+                    } catch (NumberFormatException ex) {
+                        System.out.println("Invalid number.");
+                    }
+                    break;
+                }
+                case "2": { 
+                    if (!ensureArrayReady()) break;
+                    System.out.println("Array: " + Arrays.toString(arr));
+                    break;
+                }
+                case "3": { 
+                    if (!ensureArrayReady()) break;
+                    System.out.println("Minimum: " + ArrayUtils.findMin(arr));
+                    break;
+                }
+            }
+        }
+
+    }
+}
